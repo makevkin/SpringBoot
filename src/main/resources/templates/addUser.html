@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>New User</title>
+</head>
+<body>
+
+<form th:method="post" th:action="@{/addUser}" th:object="${newUser}">
+    <input hidden="hidden" type="number" th:field="*{id}" id="id"/> <!-- делаем невидимым поле id-->
+    <label for="name">Enter name: </label>
+    <input type="text" th:field="*{name}" id="name"/>
+    <div th:if="${#fields.hasErrors('name')}" th:errors="*{name}" class="error"></div>
+    <br/>
+    <label for="age">Enter age: </label>
+    <input type="text" th:field="*{age}" id="age"/>
+    <div th:if="${#fields.hasErrors('age')}" th:errors="*{age}" class="error"></div>
+    <br/>
+    <input type="submit" value="Ok"/>
+</form>
+</body>
+</html>
+
+
+
